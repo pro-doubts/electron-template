@@ -1,0 +1,7 @@
+/node_modules/
+/*/node_modules/
+/*/.rollup.cache/
+/*/dist/
+/*/tsconfig.tsbuildinfo
+/out/
+/download/

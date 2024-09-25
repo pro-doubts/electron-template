@@ -1,0 +1,46 @@
+{
+  "name": "@app/renderer",
+  "version": "0.1.0",
+  "description": "The files for the Render Process",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./html/index.html"
+      }
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "clean": "pnpx rimraf ./.rollup.cache/ ./dist/ ./node_modules/ ./tsconfig.tsbuildinfo",
+    "build": "pnpm exec rollup --config rollup.config.mjs",
+    "start": "pnpx electron .",
+    "watch" : "nodemon --exec electron ."
+  },
+  "author": "IIIMADDINIII",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^3.19.1",
+    "typescript": "^5.0.2",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "rollup-plugin-include-sourcemaps": "^0.7.0",
+    "rollup-plugin-html-literals": "^1.1.6",
+    "@types/uuid": "^9.0.1",
+    "@rollup/pluginutils": "^5.0.2",
+    "rollup-plugin-consts": "^1.1.0"
+  },
+  "dependencies": {
+    "@app/common": "workspace:../common",
+    "uuid": "^9.0.0",
+    "lit": "^2.6.1",
+    "tslib": "^2.5.0",
+    "comlink-electron-renderer": "^0.2.0"
+  },
+  "rollup": {
+    "packageDependencies": true,
+    "doNotGenerateDeclarationInProduction": true
+  }
+}
